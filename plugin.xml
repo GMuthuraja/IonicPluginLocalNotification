@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-estaff-localnotification" version="1.0.8" 
+    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>LocalNotification</name>
+    <js-module name="LocalNotification" src="www/localnotification.js">
+        <clobbers target="LocalNotification" />
+    </js-module>
+    <platform name="android">
+    <preference name="ANDROID_SUPPORT_V4_VERSION" default="28.+"/>
+        <framework src="com.android.support:support-v4:$ANDROID_SUPPORT_V4_VERSION"/>
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="LocalNotification">
+                <param name="android-package" value="cordova.plugin.estaff.localnotification.LocalNotification" />
+            </feature>
+        </config-file>
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:label="MainActivity" android:name="cordova.plugin.estaff.localnotification.MainActivity"></activity>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+        <source-file src="res/drawable/notification.png" target-dir="res/drawable" />
+        <source-file src="src/android/LocalNotification.java" target-dir="src/cordova/plugin/estaff/localnotification" />
+        <source-file src="src/android/MainActivity.java" target-dir="src/cordova/plugin/estaff/localnotification" />
+    </platform>
+</plugin>

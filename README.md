@@ -1,10 +1,5 @@
 # IonicPluginLocalNotification 
 
----
-title: Ionic Local Notification 
-description: Display local notification
----
-
 # cordova-plugin-estaff-localnotification
 
 

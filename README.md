@@ -19,12 +19,15 @@ description: Display local notification
 ```
 declare var LocalNotification: any; //paste it below the import section
 
-//button onclick function 
-openCam() { 
-LocalNotification.showNotification("", (response) => {
-      console.log(response); //captured image file path
-    }, (error => {
-      console.log(error);
-})
-}
+let options = {
+  "title": 'Title goes here',
+  "message": 'Message goes here',
+};
+
+//Display local notification
+LocalNotification.invoke(options, (res) => {
+  console.log(res);
+}, (err) => {
+  console.log(err);
+});
 ```

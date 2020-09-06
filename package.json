@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-estaff-localnotification",
-  "version": "1.0.9",
+  "version": "1.1.1",
   "description": "Cordova plugin to invoke local notifications",
   "cordova": {
     "id": "cordova-plugin-estaff-localnotification",

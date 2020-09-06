@@ -41,20 +41,22 @@ public class LocalNotification extends CordovaPlugin {
             Intent showIntent = new Intent(context, MainActivity.class);
             showIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             showIntent.putExtra("notification_id", nID);
+            showIntent.putExtra("title", arg_object.getString("title"));
+            showIntent.putExtra("message", arg_object.getString("message"));
             PendingIntent showPIntent = PendingIntent.getActivity(context, nID ,showIntent,0);
 
             NotificationCompat.Builder nBuilder = new NotificationCompat.Builder(context, "channelID");
             nBuilder.setSmallIcon(icon);
+            nBuilder.setAutoCancel(true);
             nBuilder.setContentTitle(arg_object.getString("title"));
             nBuilder.setContentText(arg_object.getString("message"));
-            nBuilder.setAutoCancel(false);
             nBuilder.setContentIntent(showPIntent);
 
             nManager.notify(nID, nBuilder.build());
-            callbackContext.success("<<<<<<<Notifcation success>>>>>");
+            callbackContext.success("<<<<<<<Local Notifcation success>>>>>");
             return true;
         }
-        callbackContext.error("Expected one non-empty string argument."+ args.getJSONObject(0));
+        callbackContext.error("<<<<<<<Expected one non-empty string argument>>>>>");
         return false;
     }
 }
